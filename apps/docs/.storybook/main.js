@@ -1,5 +1,6 @@
 import { dirname, join, resolve } from "path";
 
+
 function getAbsolutePath(value) {
   return dirname(require.resolve(join(value, "package.json")));
 }
@@ -29,6 +30,13 @@ const config = {
             replacement: resolve(__dirname, "../../../packages/ui/"),
           },
         ],
+      },
+      css: {
+        postcss: {
+          plugins: [
+            require('@tailwindcss/postcss'),
+          ],
+        },
       },
     };
   },
